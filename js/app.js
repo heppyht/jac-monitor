@@ -1,25 +1,25 @@
-"use strict";
-
 async function loadDashboard() {
 
-    console.log("Loading Dashboard...");
+    try {
 
-    updateHeader();
+        showLoading(true);
 
-}
+        const data = await loadEVData();
 
-function updateHeader() {
+        console.log(data);
 
-    const api = getApi();
+        renderDashboard(data);
 
-    if (!api) return;
+    }
+    catch (err) {
 
-    const session = api.getSession();
+        console.error(err);
 
-    document.getElementById("databaseName").textContent =
-        session.database;
+    }
+    finally {
 
-    document.getElementById("lastUpdate").textContent =
-        new Date().toLocaleString();
+        showLoading(false);
+
+    }
 
 }
