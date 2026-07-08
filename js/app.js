@@ -1,3 +1,5 @@
+"use strict";
+
 async function loadDashboard() {
 
     try {
@@ -22,4 +24,16 @@ async function loadDashboard() {
 
     }
 
+}
+
+function showLoading(show) {
+    console.log("Loading:", show);
+}
+
+async function loadEVData() {
+    return [];
+}
+
+function renderDashboard(data) {
+    console.log("Render Dashboard", data);
 }
