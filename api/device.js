@@ -1,3 +1,5 @@
+"use strict";
+
 async function getDevices() {
 
     return await apiCall("Get", {

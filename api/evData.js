@@ -2,77 +2,17 @@
 
 async function loadEVData() {
 
-    const [
-
-        devices,
-
-        statusData,
-
-        diagnostics,
-
-        logRecords
-
-    ] = await apiMultiCall([
-
-        [
-
-            "Get",
-
-            {
-
-                typeName: "Device"
-
-            }
-
-        ],
-
-        [
-
-            "Get",
-
-            {
-
-                typeName: "StatusData"
-
-            }
-
-        ],
-
-        [
-
-            "Get",
-
-            {
-
-                typeName: "Diagnostic"
-
-            }
-
-        ],
-
-        [
-
-            "Get",
-
-            {
-
-                typeName: "LogRecord"
-
-            }
-
-        ]
-
-    ]);
+    const devices = await getDevices();
 
     return {
 
         devices,
 
-        statusData,
+        statusData: [],
 
-        diagnostics,
+        diagnostics: [],
 
-        logRecords
+        logRecords: []
 
     };
 

@@ -8,7 +8,7 @@ async function loadDashboard() {
 
         const data = await loadEVData();
 
-        console.log(data);
+        console.log("EV DATA :", data);
 
         renderDashboard(data);
 
@@ -26,14 +26,25 @@ async function loadDashboard() {
 
 }
 
-function showLoading(show) {
-    console.log("Loading:", show);
-}
-
-async function loadEVData() {
-    return [];
-}
-
 function renderDashboard(data) {
-    console.log("Render Dashboard", data);
+
+    const session = getApi().getSession();
+
+    document.getElementById("databaseName").textContent =
+        session.database;
+
+    document.getElementById("lastUpdate").textContent =
+        new Date().toLocaleString();
+
+    document.getElementById("totalDevice").textContent =
+        data.devices.length;
+
+    renderVehicleTable(data.devices);
+
+}
+
+function showLoading(show) {
+
+    console.log(show ? "Loading..." : "Finished");
+
 }
