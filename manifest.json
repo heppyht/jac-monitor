@@ -8,8 +8,7 @@
             "path": "EngineMaintenanceLink/",
             "menuName": {
                 "en": "JAC EV Monitor"
-            },
-            "icon": "images/icon.svg"
+            }
         }
     ],
     "isSigned": false
